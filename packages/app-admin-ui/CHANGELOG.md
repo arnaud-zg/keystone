@@ -1,5 +1,14 @@
 # @keystonejs/app-admin-ui
 
+## 5.0.2
+
+### Patch Changes
+
+- [`5595e4c4`](https://github.com/keystonejs/keystone/commit/5595e4c45c618fa7e13a3d91e3ea3892b4f10475) [#1808](https://github.com/keystonejs/keystone/pull/1808) Thanks [@gautamsi](https://github.com/gautamsi)! - upgrade `react-apollo` and replace use of `react-apollo-hooks` with `react-apollo`. `react-apollo` has similar hooks api to `react-apollo-hooks`
+
+- Updated dependencies [[`5595e4c4`](https://github.com/keystonejs/keystone/commit/5595e4c45c618fa7e13a3d91e3ea3892b4f10475)]:
+  - @keystonejs/fields@5.0.3
+
 ## 5.0.1
 
 ### Patch Changes
