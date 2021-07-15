@@ -1,5 +1,23 @@
 # @keystone-ui/pill
 
+## 5.0.0
+
+### Major Changes
+
+- [#5987](https://github.com/keystonejs/keystone/pull/5987) [`972e04514`](https://github.com/keystonejs/keystone/commit/972e045145711e39fd6fa167cb87fa05e062272c) Thanks [@gwyneplaine](https://github.com/gwyneplaine)! - Added containerProps prop, these are spread onto the containing element. All other props are now spread onto the internal PillButton component (this change is inclusive of refs).
+
+## 4.0.0
+
+### Major Changes
+
+- [#5746](https://github.com/keystonejs/keystone/pull/5746) [`19750d2dc`](https://github.com/keystonejs/keystone/commit/19750d2dc5801cc8d2ffae1f50d1d5ca6ab9407d) Thanks [@timleslie](https://github.com/timleslie)! - Update Node.js dependency to `^12.20 || >= 14.13`.
+
+### Patch Changes
+
+- Updated dependencies [[`19750d2dc`](https://github.com/keystonejs/keystone/commit/19750d2dc5801cc8d2ffae1f50d1d5ca6ab9407d)]:
+  - @keystone-ui/core@3.0.0
+  - @keystone-ui/icons@4.0.0
+
 ## 3.0.0
 
 ### Major Changes

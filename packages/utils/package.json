@@ -1,21 +1,18 @@
 {
-  "name": "@keystone-next/utils-legacy",
-  "description": "Common utility functions used throughout @keystonejs packages.",
-  "version": "9.0.0",
+  "name": "@keystone-next/utils",
+  "description": "Common utility functions used throughout @keystone-next packages.",
+  "version": "1.0.2",
   "author": "The KeystoneJS Development Team",
   "license": "MIT",
   "homepage": "https://github.com/keystonejs/keystone",
-  "repository": "https://github.com/keystonejs/keystone/tree/master/packages/utils",
-  "main": "dist/utils-legacy.cjs.js",
-  "module": "dist/utils-legacy.esm.js",
+  "main": "dist/utils.cjs.js",
+  "module": "dist/utils.esm.js",
   "engines": {
-    "node": ">=v12.13.1"
+    "node": "^12.20 || >= 14.13"
   },
   "dependencies": {
-    "@babel/runtime": "^7.13.16",
-    "@keystone-next/types": "^17.0.0",
-    "p-lazy": "^3.1.0",
-    "p-reflect": "^2.1.0",
-    "semver": "^7.3.5"
-  }
+    "@babel/runtime": "^7.14.6",
+    "@keystone-next/types": "^22.0.0"
+  },
+  "repository": "https://github.com/keystonejs/keystone/tree/master/packages/utils"
 }

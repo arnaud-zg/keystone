@@ -46,7 +46,7 @@ export const exampleProjectTests = (
   exampleName: string,
   tests: (browser: playwright.BrowserType<playwright.Browser>) => void
 ) => {
-  const projectDir = path.join(__dirname, '..', '..', 'examples-next', exampleName);
+  const projectDir = path.join(__dirname, '..', '..', 'examples', exampleName);
   describe.each(['dev', 'prod'] as const)('%s', mode => {
     let cleanupKeystoneProcess = () => {};
 
@@ -77,7 +77,7 @@ export const exampleProjectTests = (
         keystoneProcess.stderr!.off('data', listener);
         // childProcess.kill will only kill the direct child process
         // so we use tree-kill to kill the process and it's children
-        await treeKill(keystoneProcess.pid);
+        await treeKill(keystoneProcess.pid!);
       };
       await adminUIReady;
     }

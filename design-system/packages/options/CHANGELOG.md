@@ -1,5 +1,36 @@
 # @keystone-ui/options
 
+## 4.0.1
+
+### Patch Changes
+
+- [#5848](https://github.com/keystonejs/keystone/pull/5848) [`4e5634b86`](https://github.com/keystonejs/keystone/commit/4e5634b86a26819cecec5b10c18f9d231b5434e2) Thanks [@renovate](https://github.com/apps/renovate)! - Updated TypeScript to 4.3.2
+
+- Updated dependencies [[`4e5634b86`](https://github.com/keystonejs/keystone/commit/4e5634b86a26819cecec5b10c18f9d231b5434e2)]:
+  - @keystone-ui/fields@4.1.2
+
+## 4.0.0
+
+### Major Changes
+
+- [#5746](https://github.com/keystonejs/keystone/pull/5746) [`19750d2dc`](https://github.com/keystonejs/keystone/commit/19750d2dc5801cc8d2ffae1f50d1d5ca6ab9407d) Thanks [@timleslie](https://github.com/timleslie)! - Update Node.js dependency to `^12.20 || >= 14.13`.
+
+### Patch Changes
+
+- Updated dependencies [[`19750d2dc`](https://github.com/keystonejs/keystone/commit/19750d2dc5801cc8d2ffae1f50d1d5ca6ab9407d)]:
+  - @keystone-ui/core@3.0.0
+  - @keystone-ui/fields@4.0.0
+  - @keystone-ui/icons@4.0.0
+
+## 3.0.1
+
+### Patch Changes
+
+- [#5642](https://github.com/keystonejs/keystone/pull/5642) [`dbe831976`](https://github.com/keystonejs/keystone/commit/dbe831976eeee876f3722d4b96e1b752b67cb945) Thanks [@malitov](https://github.com/malitov)! - Added hover state to the `OptionPrimitive` in Admin UI and updated css colors
+
+- Updated dependencies [[`dbe831976`](https://github.com/keystonejs/keystone/commit/dbe831976eeee876f3722d4b96e1b752b67cb945)]:
+  - @keystone-ui/core@2.0.3
+
 ## 3.0.0
 
 ### Major Changes

@@ -1,37 +1,26 @@
 import { text, relationship } from '@keystone-next/fields';
 import { createSchema, list } from '@keystone-next/keystone/schema';
-import {
-  ProviderName,
-  multiAdapterRunners,
-  setupFromConfig,
-  testConfig,
-} from '@keystone-next/test-utils-legacy';
-import { createItems, updateItems } from '@keystone-next/server-side-graphql-client-legacy';
+import { setupTestRunner } from '@keystone-next/testing';
 import { KeystoneContext } from '@keystone-next/types';
+import { apiTestConfig } from '../utils';
 
 type IdType = any;
 
 const createInitialData = async (context: KeystoneContext) => {
-  const roles = (await createItems({
-    context,
-    listKey: 'Role',
-    items: [{ data: { name: 'RoleA' } }, { data: { name: 'RoleB' } }, { data: { name: 'RoleC' } }],
-    returnFields: 'id name',
+  const roles = (await context.lists.Role.createMany({
+    data: [{ data: { name: 'RoleA' } }, { data: { name: 'RoleB' } }, { data: { name: 'RoleC' } }],
+    query: 'id name',
   })) as { id: IdType; name: string }[];
-  const companies = (await createItems({
-    context,
-    listKey: 'Company',
-    items: [
+  const companies = (await context.lists.Company.createMany({
+    data: [
       { data: { name: 'CompanyA' } },
       { data: { name: 'CompanyB' } },
       { data: { name: 'CompanyC' } },
     ],
-    returnFields: 'id name',
+    query: 'id name',
   })) as { id: IdType; name: string }[];
-  const employees = (await createItems({
-    context,
-    listKey: 'Employee',
-    items: [
+  const employees = (await context.lists.Employee.createMany({
+    data: [
       {
         data: {
           name: 'EmployeeA',
@@ -54,12 +43,10 @@ const createInitialData = async (context: KeystoneContext) => {
         },
       },
     ],
-    returnFields: 'id name',
+    query: 'id name',
   })) as { id: IdType; name: string }[];
-  await createItems({
-    context,
-    listKey: 'Location',
-    items: [
+  await context.lists.Location.createMany({
+    data: [
       {
         data: {
           name: 'LocationA',
@@ -91,12 +78,10 @@ const createInitialData = async (context: KeystoneContext) => {
         },
       },
     ],
-    returnFields: 'id name',
+    query: 'id name',
   });
-  await updateItems({
-    context,
-    listKey: 'Role',
-    items: [
+  await context.lists.Role.updateMany({
+    data: [
       {
         id: roles.find(({ name }) => name === 'RoleA')!.id,
         data: {
@@ -122,57 +107,48 @@ const createInitialData = async (context: KeystoneContext) => {
   });
 };
 
-const setupKeystone = (provider: ProviderName) =>
-  setupFromConfig({
-    provider,
-    config: testConfig({
-      lists: createSchema({
-        Employee: list({
-          fields: {
-            name: text(),
-            company: relationship({ ref: 'Company.employees', many: false }),
-            role: relationship({ ref: 'Role', many: false }),
-          },
-        }),
-        Company: list({
-          fields: {
-            name: text(),
-            employees: relationship({ ref: 'Employee.company', many: true }),
-          },
-        }),
-        Role: list({
-          fields: {
-            name: text(),
-            company: relationship({ ref: 'Company', many: false }),
-            employees: relationship({ ref: 'Employee', many: true }),
-          },
-        }),
-        Location: list({
-          fields: {
-            name: text(),
-            employees: relationship({ ref: 'Employee', many: true }),
-          },
-        }),
+const runner = setupTestRunner({
+  config: apiTestConfig({
+    lists: createSchema({
+      Employee: list({
+        fields: {
+          name: text(),
+          company: relationship({ ref: 'Company.employees', many: false }),
+          role: relationship({ ref: 'Role', many: false }),
+        },
+      }),
+      Company: list({
+        fields: {
+          name: text(),
+          employees: relationship({ ref: 'Employee.company', many: true }),
+        },
+      }),
+      Role: list({
+        fields: {
+          name: text(),
+          company: relationship({ ref: 'Company', many: false }),
+          employees: relationship({ ref: 'Employee', many: true }),
+        },
+      }),
+      Location: list({
+        fields: {
+          name: text(),
+          employees: relationship({ ref: 'Employee', many: true }),
+        },
       }),
     }),
-  });
+  }),
+});
 
-multiAdapterRunners().map(({ runner, provider }) =>
-  describe(`Provider: ${provider}`, () => {
-    test(
-      'Query',
-      runner(setupKeystone, async ({ context }) => {
-        await createInitialData(context);
-        const data = await context.graphql.run({
-          query: `{
-                  allEmployees(where: {
-                    company: { employees_some: { role: { name: "RoleA" } } }
-                  }) { id name }
-                }`,
-        });
-        expect(data.allEmployees).toHaveLength(1);
-        expect(data.allEmployees[0].name).toEqual('EmployeeA');
-      })
-    );
+test(
+  'Query',
+  runner(async ({ context }) => {
+    await createInitialData(context);
+    const employees = await context.lists.Employee.findMany({
+      where: { company: { employees_some: { role: { name: 'RoleA' } } } },
+      query: 'id name',
+    });
+    expect(employees).toHaveLength(1);
+    expect(employees[0].name).toEqual('EmployeeA');
   })
 );

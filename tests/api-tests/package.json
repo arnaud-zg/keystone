@@ -2,11 +2,11 @@
   "name": "@keystone-next/api-tests-legacy",
   "description": "A set of tests for running against the KeystoneJS API.",
   "private": true,
-  "version": "10.0.0",
+  "version": "11.0.5",
   "author": "The KeystoneJS Development Team",
   "license": "MIT",
   "engines": {
-    "node": ">=v12.13.1"
+    "node": "^12.20 || >= 14.13"
   },
   "repository": "https://github.com/keystonejs/keystone/tree/master/tests/api-tests",
   "homepage": "https://github.com/keystonejs/keystone",
@@ -14,22 +14,22 @@
     "@hapi/iron": "^6.0.0",
     "@keystone-next/auth": "*",
     "@keystone-next/fields": "*",
+    "@keystone-next/fields-document": "*",
     "@keystone-next/keystone": "*",
-    "@keystone-next/server-side-graphql-client-legacy": "*",
     "cookie-signature": "^1.1.0",
     "cuid": "^2.1.8",
-    "globby": "^11.0.3",
-    "graphql": "^15.5.0",
-    "memoize-one": "^5.1.1",
+    "globby": "^11.0.4",
+    "graphql": "^15.5.1",
+    "memoize-one": "^5.2.1",
     "superagent": "^6.1.0",
-    "supertest-light": "^1.0.3",
-    "testcheck": "^1.0.0-rc.2"
+    "testcheck": "^1.0.0-rc.2",
+    "uuid": "^8.3.2"
   },
   "dependencies": {
-    "@keystone-next/test-utils-legacy": "^17.0.0",
-    "@keystone-next/types": "^17.0.0",
-    "@keystone-next/utils-legacy": "^9.0.0",
-    "apollo-cache-control": "^0.12.0",
+    "@keystone-next/testing": "^1.0.2",
+    "@keystone-next/types": "^22.0.0",
+    "@keystone-next/utils": "^1.0.2",
+    "apollo-cache-control": "^0.14.0",
     "express": "^4.17.1"
   }
 }

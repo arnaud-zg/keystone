@@ -1,5 +1,202 @@
 # @keystonejs/api-tests
 
+## 11.0.5
+
+### Patch Changes
+
+- [#6087](https://github.com/keystonejs/keystone/pull/6087) [`139d7a8de`](https://github.com/keystonejs/keystone/commit/139d7a8def263d40c0d1d5353d2744842d9a0951) Thanks [@JedWatson](https://github.com/JedWatson)! - Move source code from the `packages-next` to the `packages` directory.
+
+* [#6040](https://github.com/keystonejs/keystone/pull/6040) [`890e3d0a5`](https://github.com/keystonejs/keystone/commit/890e3d0a500ecc30cc88946ba53438812b11b2a4) Thanks [@timleslie](https://github.com/timleslie)! - Fixed the behaviour of `document(hydrateRelationships: true)` when a related item no longer exists or read access is denied.
+  The resolver will now set the relationship data to be `{ id }`, leaving the `label` and `data` properties undefined.
+* Updated dependencies [[`38b78f2ae`](https://github.com/keystonejs/keystone/commit/38b78f2aeaf4c5d8176a1751ad8cb5a7acce2790), [`5f3d407d7`](https://github.com/keystonejs/keystone/commit/5f3d407d79171f04ae877e8eaed9a7f9d5671705), [`139d7a8de`](https://github.com/keystonejs/keystone/commit/139d7a8def263d40c0d1d5353d2744842d9a0951)]:
+  - @keystone-next/types@22.0.0
+  - @keystone-next/testing@1.0.2
+  - @keystone-next/utils@1.0.2
+
+## 11.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`03f535ba6`](https://github.com/keystonejs/keystone/commit/03f535ba6fa1a5e5f3027bcad761feb3fd94587b)]:
+  - @keystone-next/types@21.0.0
+  - @keystone-next/testing@1.0.1
+  - @keystone-next/utils@1.0.1
+
+## 11.0.3
+
+### Patch Changes
+
+- [#5932](https://github.com/keystonejs/keystone/pull/5932) [`7a25925c3`](https://github.com/keystonejs/keystone/commit/7a25925c3dc5b2af2cf1209ee949563fb71a4a8c) Thanks [@timleslie](https://github.com/timleslie)! - Initial release of `@keystone-next/utils` package.
+
+* [#5926](https://github.com/keystonejs/keystone/pull/5926) [`3b9cdc2c0`](https://github.com/keystonejs/keystone/commit/3b9cdc2c0cc19be109d7d5e0d7ccd43946f35ffe) Thanks [@timleslie](https://github.com/timleslie)! - Updated tests to use the `@keystone-next/testing` package.
+
+* Updated dependencies [[`7a25925c3`](https://github.com/keystonejs/keystone/commit/7a25925c3dc5b2af2cf1209ee949563fb71a4a8c), [`50ad1ce6b`](https://github.com/keystonejs/keystone/commit/50ad1ce6be90f5fb2481840dbd01328b6f629432), [`0df3734d5`](https://github.com/keystonejs/keystone/commit/0df3734d52a89df30f1d555d003002cb79ad9e9a), [`543154bc0`](https://github.com/keystonejs/keystone/commit/543154bc081dde33ea29b8a2bff1d3033d538077), [`3b9cdc2c0`](https://github.com/keystonejs/keystone/commit/3b9cdc2c0cc19be109d7d5e0d7ccd43946f35ffe)]:
+  - @keystone-next/utils@1.0.0
+  - @keystone-next/types@20.0.1
+  - @keystone-next/testing@1.0.0
+
+## 11.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`7eabb4dee`](https://github.com/keystonejs/keystone/commit/7eabb4dee2552f7baf1e0024d82011b179d418d4), [`4995c682d`](https://github.com/keystonejs/keystone/commit/4995c682dbdcfac2100de9fab98ba1e0e08cbcc2), [`a3b07ea16`](https://github.com/keystonejs/keystone/commit/a3b07ea16ffc0f6741c0c0e5e281622a1831e0e7), [`4c90c0d3c`](https://github.com/keystonejs/keystone/commit/4c90c0d3c8e75c6a58910c4bd563b3b80e61e801), [`a3b07ea16`](https://github.com/keystonejs/keystone/commit/a3b07ea16ffc0f6741c0c0e5e281622a1831e0e7), [`84a5e7f3b`](https://github.com/keystonejs/keystone/commit/84a5e7f3bc3a29ff31d642831e7aaadfc8534ba1), [`a3b07ea16`](https://github.com/keystonejs/keystone/commit/a3b07ea16ffc0f6741c0c0e5e281622a1831e0e7), [`a3b07ea16`](https://github.com/keystonejs/keystone/commit/a3b07ea16ffc0f6741c0c0e5e281622a1831e0e7), [`cf8825bf4`](https://github.com/keystonejs/keystone/commit/cf8825bf4ce1bab19f1dbd4344c63611f78d832a), [`97fd5e05d`](https://github.com/keystonejs/keystone/commit/97fd5e05d8681bae86001e6b7e8e3f36ebd639b7)]:
+  - @keystone-next/types@20.0.0
+  - @keystone-next/utils-legacy@12.0.0
+  - @keystone-next/test-utils-legacy@21.0.0
+
+## 11.0.1
+
+### Patch Changes
+
+- [#5806](https://github.com/keystonejs/keystone/pull/5806) [`0eadba2ba`](https://github.com/keystonejs/keystone/commit/0eadba2badb13fc6a17f7e525d429494ca953481) Thanks [@list({](https://github.com/list({), [@list({](https://github.com/list({)! - Removed `withItemData` in favour of a `sessionData` option to the `createAuth()` function.
+
+  Previously, `withItemData` would be used to wrap the `config.session` argument:
+
+  ```typescript
+  import { config, createSchema, list } from '@keystone-next/keystone/schema';
+  import { statelessSessions, withAuthData } from '@keystone-next/keystone/session';
+  import { text, password, checkbox } from '@keystone-next/fields';
+  import { createAuth } from '@keystone-next/auth';
+
+  const { withAuth } = createAuth({
+    listKey: 'User',
+    identityField: 'email',
+    secretField: 'password',
+  });
+
+  const session = statelessSessions({ secret: '-- EXAMPLE COOKIE SECRET; CHANGE ME --' });
+
+  export default withAuth(
+    config({
+      lists: createSchema({
+
+          fields: {
+            email: text({ isUnique: true }),
+            password: password(),
+            isAdmin: checkbox(),
+          },
+        }),
+        session: withItemData(session, { User: 'id isAdmin' }),
+      }),
+    })
+  );
+  ```
+
+  Now, the fields to populate are configured on `sessionData` in `createAuth`, and `withItemData` is completely removed.
+
+  ```typescript
+  import { config, createSchema, list } from '@keystone-next/keystone/schema';
+  import { statelessSessions } from '@keystone-next/keystone/session';
+  import { text, password, checkbox } from '@keystone-next/fields';
+  import { createAuth } from '@keystone-next/auth';
+
+  const { withAuth } = createAuth({
+    listKey: 'User',
+    identityField: 'email',
+    secretField: 'password',
+    sessionData: 'id isAdmin',
+  });
+
+  const session = statelessSessions({ secret: '-- EXAMPLE COOKIE SECRET; CHANGE ME --' });
+
+  export default withAuth(
+    config({
+      lists: createSchema({
+
+          fields: {
+            email: text({ isUnique: true }),
+            password: password(),
+            isAdmin: checkbox(),
+          },
+        }),
+        session,
+      }),
+    })
+  );
+  ```
+
+* [#5767](https://github.com/keystonejs/keystone/pull/5767) [`02af04c03`](https://github.com/keystonejs/keystone/commit/02af04c03c96c26c273cd49eda5b4a132e02a26a) Thanks [@timleslie](https://github.com/timleslie)! - Deprecated the `sortBy` GraphQL filter. Updated the `orderBy` GraphQL filter with an improved API.
+
+  Previously a `User` list's `allUsers` query would have the argument:
+
+  ```graphql
+  orderBy: String
+  ```
+
+  The new API gives it the argument:
+
+  ```graphql
+  orderBy: [UserOrderByInput!]! = []
+  ```
+
+  where
+
+  ```graphql
+  input UserOrderByInput {
+    id: OrderDirection
+    name: OrderDirection
+    score: OrderDirection
+  }
+
+  enum OrderDirection {
+    asc
+    desc
+  }
+  ```
+
+  Rather than writing `allUsers(orderBy: "name_ASC")` you now write `allUsers(orderBy: { name: asc })`. You can also now order by multiple fields, e.g. `allUsers(orderBy: [{ score: asc }, { name: asc }])`. Each `UserOrderByInput` must have exactly one key, or else an error will be returned.
+
+- [#5791](https://github.com/keystonejs/keystone/pull/5791) [`9de71a9fb`](https://github.com/keystonejs/keystone/commit/9de71a9fb0d3b7f5f05c0d908bebdb818723fd4b) Thanks [@timleslie](https://github.com/timleslie)! - Changed the return type of `allItems(...)` from `[User]` to `[User!]`, as this API can never have `null` items in the return array.
+
+* [#5769](https://github.com/keystonejs/keystone/pull/5769) [`08478b8a7`](https://github.com/keystonejs/keystone/commit/08478b8a7bb9fe5932c7f74f9f6d3af75a0a5394) Thanks [@timleslie](https://github.com/timleslie)! - The GraphQL query `_all<Items>Meta { count }` generated for each list has been deprecated in favour of a new query `<items>Count`, which directy returns the count.
+
+  A `User` list would have the following query added to the API:
+
+  ```graphql
+  usersCount(where: UserWhereInput! = {}): Int
+  ```
+
+* Updated dependencies [[`b9c828fb0`](https://github.com/keystonejs/keystone/commit/b9c828fb0d6e587976dbd0dc4e87004bce3b2ef7), [`5cc35170f`](https://github.com/keystonejs/keystone/commit/5cc35170fd46118089a2a6f863d782aff989bbf0), [`195d4fb12`](https://github.com/keystonejs/keystone/commit/195d4fb1218517d7b9a40d3bba1a087d40e6d1d6), [`02af04c03`](https://github.com/keystonejs/keystone/commit/02af04c03c96c26c273cd49eda5b4a132e02a26a), [`08478b8a7`](https://github.com/keystonejs/keystone/commit/08478b8a7bb9fe5932c7f74f9f6d3af75a0a5394), [`7bda87ea7`](https://github.com/keystonejs/keystone/commit/7bda87ea7f11e0faceccc6ab3f715c72b07c129b), [`4b11c5ea8`](https://github.com/keystonejs/keystone/commit/4b11c5ea87b759c24bdbff9d18443bbc972757c0), [`bb4f4ac91`](https://github.com/keystonejs/keystone/commit/bb4f4ac91c3ed70393774f744075971453a12aba)]:
+  - @keystone-next/types@19.0.0
+  - @keystone-next/test-utils-legacy@20.0.0
+  - @keystone-next/utils-legacy@11.0.1
+
+## 11.0.0
+
+### Major Changes
+
+- [#5746](https://github.com/keystonejs/keystone/pull/5746) [`19750d2dc`](https://github.com/keystonejs/keystone/commit/19750d2dc5801cc8d2ffae1f50d1d5ca6ab9407d) Thanks [@timleslie](https://github.com/timleslie)! - Update Node.js dependency to `^12.20 || >= 14.13`.
+
+### Patch Changes
+
+- Updated dependencies [[`19750d2dc`](https://github.com/keystonejs/keystone/commit/19750d2dc5801cc8d2ffae1f50d1d5ca6ab9407d)]:
+  - @keystone-next/types@18.0.0
+  - @keystone-next/test-utils-legacy@19.0.0
+  - @keystone-next/utils-legacy@11.0.0
+
+## 10.1.1
+
+### Patch Changes
+
+- Updated dependencies [[`b1baeaba1`](https://github.com/keystonejs/keystone/commit/b1baeaba11f52a968fc547c408c3ff670ef91646), [`62e68c8e5`](https://github.com/keystonejs/keystone/commit/62e68c8e5b4964785a173ab05ff89cba9cc685f2), [`deb7f9504`](https://github.com/keystonejs/keystone/commit/deb7f9504573da67b0cd76d3f53dc0fcceaf1021), [`1ef9986dd`](https://github.com/keystonejs/keystone/commit/1ef9986ddc5a4a881a3fc6fae3d1420447174fdb)]:
+  - @keystone-next/test-utils-legacy@18.0.0
+  - @keystone-next/types@17.1.0
+
+## 10.1.0
+
+### Minor Changes
+
+- [#5529](https://github.com/keystonejs/keystone/pull/5529) [`b7aeb232d`](https://github.com/keystonejs/keystone/commit/b7aeb232db43b32cae0bca3fcb74479d6834c587) Thanks [@gwyneplaine](https://github.com/gwyneplaine)! - Added beforeEach and afterEach hooks to test suite, added file config defaults.
+
+### Patch Changes
+
+- [#5530](https://github.com/keystonejs/keystone/pull/5530) [`74fed41e2`](https://github.com/keystonejs/keystone/commit/74fed41e23c3d5c6c073574c54ca339df2235351) Thanks [@timleslie](https://github.com/timleslie)! - Updated code to use the new DB items API.
+
+- Updated dependencies [[`7e81b52b0`](https://github.com/keystonejs/keystone/commit/7e81b52b0f2240f0c590eb8f6733360cab9fe93a), [`fddeacf79`](https://github.com/keystonejs/keystone/commit/fddeacf79d25fea15be57d1a4ec16815bcdc4ab5), [`fdebf79cc`](https://github.com/keystonejs/keystone/commit/fdebf79cc3520ffb65979ddac7d61791f4f37324), [`9fd7cc62a`](https://github.com/keystonejs/keystone/commit/9fd7cc62a889f8a0f8933040bb16fcc36af7795e), [`b7aeb232d`](https://github.com/keystonejs/keystone/commit/b7aeb232db43b32cae0bca3fcb74479d6834c587), [`49dd46843`](https://github.com/keystonejs/keystone/commit/49dd468435a96c537f5649aa2fd9e21103da40e1)]:
+  - @keystone-next/types@17.0.1
+  - @keystone-next/utils-legacy@10.0.0
+  - @keystone-next/test-utils-legacy@17.0.1
+
 ## 10.0.0
 
 ### Major Changes
@@ -411,7 +608,7 @@
 
 - [`587507495`](https://github.com/keystonejs/keystone/commit/587507495aeaa70c2f0566e1b573ca4b02d1e977) [#3263](https://github.com/keystonejs/keystone/pull/3263) Thanks [@timleslie](https://github.com/timleslie)! - Removed left/right relationship variations as these are now assured by `_consolidateRelationships()`.
 
-* [`5fc97cbf4`](https://github.com/keystonejs/keystone/commit/5fc97cbf4489587a3a8cb38c04ba81fc2cb1fc5a) [#3171](https://github.com/keystonejs/keystone/pull/3171) Thanks [@timleslie](https://github.com/timleslie)! - Hooks no longer recieve a `{ query }` argument. This functionality has been superseded by `context.executeGraphQL()`.
+* [`5fc97cbf4`](https://github.com/keystonejs/keystone/commit/5fc97cbf4489587a3a8cb38c04ba81fc2cb1fc5a) [#3171](https://github.com/keystonejs/keystone/pull/3171) Thanks [@timleslie](https://github.com/timleslie)! - Hooks no longer receive a `{ query }` argument. This functionality has been superseded by `context.executeGraphQL()`.
 
   ```
   {

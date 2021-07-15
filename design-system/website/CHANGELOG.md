@@ -1,5 +1,44 @@
 # @keystone-ui/website
 
+## 3.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`972e04514`](https://github.com/keystonejs/keystone/commit/972e045145711e39fd6fa167cb87fa05e062272c), [`4e5634b86`](https://github.com/keystonejs/keystone/commit/4e5634b86a26819cecec5b10c18f9d231b5434e2), [`0afacf621`](https://github.com/keystonejs/keystone/commit/0afacf621f922b5f47f7314ead9be94960b9859a), [`40a44d20d`](https://github.com/keystonejs/keystone/commit/40a44d20d2eda2bcfb311fc3ce05936623230205), [`eab130f30`](https://github.com/keystonejs/keystone/commit/eab130f30d79b82c18b3cce0bc054abe2c1b58fd), [`972e04514`](https://github.com/keystonejs/keystone/commit/972e045145711e39fd6fa167cb87fa05e062272c)]:
+  - @keystone-ui/popover@4.0.2
+  - @keystone-ui/fields@4.1.2
+  - @keystone-ui/options@4.0.1
+  - @keystone-ui/toast@4.0.1
+  - @keystone-ui/pill@5.0.0
+
+## 3.0.0
+
+### Major Changes
+
+- [#5746](https://github.com/keystonejs/keystone/pull/5746) [`19750d2dc`](https://github.com/keystonejs/keystone/commit/19750d2dc5801cc8d2ffae1f50d1d5ca6ab9407d) Thanks [@timleslie](https://github.com/timleslie)! - Update Node.js dependency to `^12.20 || >= 14.13`.
+
+### Patch Changes
+
+- Updated dependencies [[`19750d2dc`](https://github.com/keystonejs/keystone/commit/19750d2dc5801cc8d2ffae1f50d1d5ca6ab9407d)]:
+  - @keystone-ui/button@5.0.0
+  - @keystone-ui/core@3.0.0
+  - @keystone-ui/fields@4.0.0
+  - @keystone-ui/loading@4.0.0
+  - @keystone-ui/modals@4.0.0
+  - @keystone-ui/notice@4.0.0
+  - @keystone-ui/options@4.0.0
+  - @keystone-ui/pill@4.0.0
+  - @keystone-ui/popover@4.0.0
+  - @keystone-ui/segmented-control@4.0.0
+  - @keystone-ui/toast@4.0.0
+  - @keystone-ui/tooltip@4.0.0
+
+## 2.0.1
+
+### Patch Changes
+
+- [#5601](https://github.com/keystonejs/keystone/pull/5601) [`8b77b6971`](https://github.com/keystonejs/keystone/commit/8b77b697187f8d5eb73e862b2c07b8bfbb769e0b) Thanks [@renovate](https://github.com/apps/renovate)! - Updated Next.js dependency to `^10.2.0`.
+
 ## 2.0.0
 
 ### Major Changes
